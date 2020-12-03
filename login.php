@@ -2,6 +2,7 @@
 /*
 made by xdwhat
 the user should send the key file here with POST, using name "pubkey"
+also generate a rsa key pair before using this
 */
 
 function error($a) {
@@ -34,10 +35,10 @@ if(isset($_POST['submit'])){
                 //generate random base64 string
                 $rand_string = base64_encode(bin2hex(random_bytes(64)));
 
-                //encrypt it with the public key on the server (1)
+                //encrypt it with the public key on the server--(1)
                 openssl_public_encrypt($rand_string, $encrypted, $public_key);
 
-                //decrypt the (1)encrypted string with uploaded privatekey
+                //decrypt the (1)encrypted string with uploaded privatekey--(2)
                 openssl_private_decrypt($encrypted, $new, $key);
 
                 //if (1) and (2) is same
