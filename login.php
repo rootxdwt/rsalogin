@@ -3,7 +3,7 @@
 made by xdwhat
 the user should send the key file here with POST, using name "pubkey"
 */
-session_start();
+
 function error($a) {
     echo "<script>alert('$a'); history.back(); </script>";
     exit();
