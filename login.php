@@ -41,11 +41,11 @@ if(isset($_POST['submit'])){
                 //decrypt the (1)encrypted string with uploaded privatekey--(2)
                 openssl_private_decrypt($encrypted, $new, $key);
 
-                //if (1) and (2) is same
+                //if (1) and (2) is different
                 if($new !== $rand_string) {
 
                     //wrong key, login failed
-                    error("wrong key providen");
+                    error("wrong key provided");
                 }else {
 
                     //login success! do whatever you want (ex: generate a session)
